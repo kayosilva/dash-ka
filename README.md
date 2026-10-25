@@ -2,7 +2,7 @@
 
 Página de apresentação e download do Dash Ka (painel esportivo para o Ford Ka
 no Android, via adaptador OBD2 ELM327 Bluetooth). Publicada pelo GitHub Pages
-em https://kayosilva.github.io/dash-ka/.
+em https://dashka.app.br/ (o endereço antigo kayosilva.github.io/dash-ka redireciona).
 
 O código do app fica num repositório privado; aqui ficam só a página, as
 imagens e os vídeos. O APK vai nas **Releases** deste repositório, com o nome
