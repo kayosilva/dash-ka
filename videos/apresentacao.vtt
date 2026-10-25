@@ -1,0 +1,185 @@
+WEBVTT
+
+1
+00:00:00.704 --> 00:00:04.517
+Todo carro moderno sabe muito mais do que mostra no painel.
+
+2
+00:00:04.517 --> 00:00:10.205
+O Dash Ka lê a central do motor do Ford Ka por um adaptador OBD Bluetooth e transforma o
+
+3
+00:00:10.205 --> 00:00:12.080
+celular num painel esportivo.
+
+4
+00:00:12.493 --> 00:00:15.175
+Em cima, o conta-giros com luz de troca:
+
+5
+00:00:15.175 --> 00:00:19.669
+a barra muda de cor com a rotação e avisa a hora de subir a marcha.
+
+6
+00:00:20.076 --> 00:00:26.828
+No centro, a velocidade, a marcha engatada, calculada pela rotação, e o modo de condução:
+
+7
+00:00:26.828 --> 00:00:28.572
+econômico ou esportivo.
+
+8
+00:00:28.981 --> 00:00:33.877
+Ao lado, a força G desenha cada acelerada, frenagem e curva.
+
+9
+00:00:34.287 --> 00:00:40.253
+Nas laterais, as temperaturas do motor, do ar e do catalisador, a tensão da bateria,
+
+10
+00:00:40.253 --> 00:00:44.727
+o combustível e a autonomia, calculada pelo consumo de verdade.
+
+11
+00:00:45.138 --> 00:00:50.202
+E embaixo, o consumo instantâneo, o pedal do acelerador e o freio.
+
+12
+00:00:52.308 --> 00:00:57.348
+Deslizando para o lado, a tela do Motor mostra o que a central está fazendo.
+
+13
+00:00:57.751 --> 00:01:01.699
+As sondas lambda em tempo real e as correções de mistura:
+
+14
+00:01:01.699 --> 00:01:06.202
+a curta, que muda o tempo todo, e a longa, que a central aprende.
+
+15
+00:01:06.202 --> 00:01:09.319
+Ela também estima quanto etanol há no tanque.
+
+16
+00:01:09.730 --> 00:01:13.549
+O comando de válvulas variável aparece como duas polias:
+
+17
+00:01:13.549 --> 00:01:17.914
+a posição real e a pedida pela central, na admissão e no escape.
+
+18
+00:01:18.325 --> 00:01:23.293
+E as falhas de ignição de cada cilindro, contadas pela própria central.
+
+19
+00:01:25.404 --> 00:01:27.528
+Na Viagem, o trecho atual:
+
+20
+00:01:27.528 --> 00:01:30.468
+distância, tempo e média de consumo.
+
+21
+00:01:30.871 --> 00:01:32.202
+Onde foi o tempo:
+
+22
+00:01:32.202 --> 00:01:37.759
+rodando, parado com o motor ligado, ou em freio motor, sem gastar nada.
+
+23
+00:01:38.166 --> 00:01:42.861
+E o consumo quilômetro a quilômetro, com o relevo do caminho pelo GPS:
+
+24
+00:01:42.861 --> 00:01:45.342
+dá para ver quanto cada subida custa.
+
+25
+00:01:45.749 --> 00:01:51.437
+A viagem junta as paradas curtas e fecha sozinha depois de uma hora com o carro desligado.
+
+26
+00:01:51.842 --> 00:01:54.610
+E desde o abastecimento, a média do tanque,
+
+27
+00:01:54.610 --> 00:01:58.538
+os litros que ainda restam e o etanol que a central aprendeu.
+
+28
+00:02:00.646 --> 00:02:05.468
+No Diagnóstico, os códigos de falha guardados na central, em português,
+
+29
+00:02:05.468 --> 00:02:07.438
+com o que cada um quer dizer.
+
+30
+00:02:07.843 --> 00:02:11.948
+O app anota quando cada código apareceu e com quantos quilômetros,
+
+31
+00:02:11.948 --> 00:02:14.995
+e avisa quando um código volta depois de apagado.
+
+32
+00:02:15.402 --> 00:02:20.460
+Ao lado, os autotestes da central e os quilômetros desde a última limpeza.
+
+33
+00:02:20.460 --> 00:02:25.722
+E um toque em Laudo gera um relatório em PDF, pronto para mandar ao mecânico.
+
+34
+00:02:26.132 --> 00:02:29.765
+Em Anomalias fica o que o próprio Dash percebeu rodando:
+
+35
+00:02:29.765 --> 00:02:35.084
+a luz da bateria acesa, o freio de mão puxado andando, o motor esquentando demais.
+
+36
+00:02:35.492 --> 00:02:38.989
+Se um problema some e volta, ele vira recorrente:
+
+37
+00:02:38.989 --> 00:02:40.772
+um aviso para investigar.
+
+38
+00:02:42.879 --> 00:02:48.855
+No Desempenho, a potência e o torque nas rodas, estimados pela aceleração do carro,
+
+39
+00:02:48.855 --> 00:02:49.431
+ao vivo.
+
+40
+00:02:49.836 --> 00:02:53.535
+Ao gravar uma puxada, o app mede a arrancada:
+
+41
+00:02:53.535 --> 00:02:58.548
+0 a 60 em 7.9 s, neste exemplo, com as curvas de cada marcha.
+
+42
+00:02:58.957 --> 00:03:02.941
+E cada puxada fica guardada, para comparar depois.
+
+43
+00:03:05.045 --> 00:03:09.246
+Com o carro desligado, o Dash entra em repouso sozinho.
+
+44
+00:03:09.246 --> 00:03:13.829
+Ligou o carregador no carro, ele abre de novo, já conectado.
+
+45
+00:03:14.238 --> 00:03:14.959
+Dash Ka:
+
+46
+00:03:14.959 --> 00:03:18.654
+o seu carro, por dentro, na palma da mão.

@@ -1,0 +1,209 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:01.804
+Este é o Dash Ka:
+
+2
+00:00:01.804 --> 00:00:07.968
+um painel esportivo no celular, que lê a central do motor do seu Ford Ka em tempo real.
+
+3
+00:00:08.368 --> 00:00:13.619
+Neste vídeo, você vai ver como preparar tudo e conectar pela primeira vez,
+
+4
+00:00:13.619 --> 00:00:14.896
+em poucos minutos.
+
+5
+00:00:16.896 --> 00:00:19.848
+Você vai precisar de três coisas.
+
+6
+00:00:20.248 --> 00:00:24.136
+Um celular Android, versão 8 ou mais nova.
+
+7
+00:00:24.536 --> 00:00:28.545
+Um adaptador OBD2 do tipo ELM327, com Bluetooth.
+
+8
+00:00:28.545 --> 00:00:35.144
+Ele é pequeno, barato e fácil de encontrar em lojas de autopeças e na internet.
+
+9
+00:00:35.544 --> 00:00:36.256
+Atenção:
+
+10
+00:00:36.256 --> 00:00:38.750
+tem que ser Bluetooth comum.
+
+11
+00:00:38.750 --> 00:00:45.339
+As versões Wi-Fi e as de Bluetooth 4.0, feitas para iPhone, não funcionam.
+
+12
+00:00:45.339 --> 00:00:51.840
+Outros adaptadores compatíveis com ELM327, como o OBDLink, também servem.
+
+13
+00:00:53.040 --> 00:00:53.908
+E o carro:
+
+14
+00:00:53.908 --> 00:01:00.072
+o Dash Ka foi feito e testado no Ford Ka 1.0 Ti-VCT, de três cilindros.
+
+15
+00:01:02.072 --> 00:01:05.843
+Com o carro desligado, procure a porta OBD2.
+
+16
+00:01:05.843 --> 00:01:12.272
+No Ka, ela fica embaixo do painel, abaixo do volante, do lado do motorista.
+
+17
+00:01:13.272 --> 00:01:18.960
+O conector tem 16 pinos e formato de trapézio, então só encaixa de um jeito.
+
+18
+00:01:19.360 --> 00:01:22.971
+Encaixe o adaptador até o fim, sem forçar.
+
+19
+00:01:22.971 --> 00:01:24.519
+A luz dele acende:
+
+20
+00:01:24.519 --> 00:01:27.184
+ele já recebe energia do carro.
+
+21
+00:01:27.984 --> 00:01:30.884
+Ele pode ficar encaixado no dia a dia.
+
+22
+00:01:30.884 --> 00:01:36.456
+Se o carro for ficar parado muitos dias, tire, para não gastar a bateria.
+
+23
+00:01:38.456 --> 00:01:41.744
+Ligue a ignição, ou já dê a partida.
+
+24
+00:01:42.744 --> 00:01:48.528
+No celular, abra as configurações de Bluetooth e toque em parear novo dispositivo.
+
+25
+00:01:49.328 --> 00:01:55.468
+O adaptador aparece com um nome como OBD2 ou OBDII.
+
+26
+00:01:55.468 --> 00:01:56.792
+Toque nele.
+
+27
+00:01:57.392 --> 00:02:02.744
+Se pedir uma senha, use 1234, ou 0000.
+
+28
+00:02:03.944 --> 00:02:04.544
+Pronto:
+
+29
+00:02:04.544 --> 00:02:08.144
+o pareamento só precisa ser feito uma vez.
+
+30
+00:02:10.144 --> 00:02:11.725
+Agora, abra o Dash Ka.
+
+31
+00:02:11.725 --> 00:02:17.041
+Na primeira vez, ele pede permissão para usar o Bluetooth e a localização,
+
+32
+00:02:17.041 --> 00:02:21.064
+que traz a temperatura da região e o relevo das viagens.
+
+33
+00:02:21.664 --> 00:02:25.576
+Ele procura o adaptador pareado e conecta sozinho.
+
+34
+00:02:25.576 --> 00:02:29.488
+Em poucos segundos, as leituras do motor aparecem.
+
+35
+00:02:29.888 --> 00:02:33.224
+No canto da tela, o indicador mostra a conexão:
+
+36
+00:02:33.224 --> 00:02:39.258
+OBD em verde, quando está ligado à central, ou DEMO, como aqui, no modo demonstração,
+
+37
+00:02:39.258 --> 00:02:41.600
+que abre quando não há adaptador.
+
+38
+00:02:42.400 --> 00:02:46.017
+Deslize para os lados para ver as outras telas:
+
+39
+00:02:46.017 --> 00:02:49.096
+Motor, Viagem, Diagnóstico e Desempenho.
+
+40
+00:02:51.496 --> 00:02:53.488
+Algumas dicas.
+
+41
+00:02:53.888 --> 00:02:56.595
+Deixe o celular bem firme no suporte:
+
+42
+00:02:56.595 --> 00:02:59.888
+a força G e o desempenho usam o acelerômetro.
+
+43
+00:03:00.288 --> 00:03:05.346
+Com o celular no carregador do carro, o Dash abre sozinho quando você liga o carro,
+
+44
+00:03:05.346 --> 00:03:08.880
+e entra em repouso alguns minutos depois que você desliga.
+
+45
+00:03:09.280 --> 00:03:15.041
+Se um dia ele não conectar, desfaça o pareamento do adaptador no Bluetooth e pareie de
+
+46
+00:03:15.041 --> 00:03:15.376
+novo.
+
+47
+00:03:15.776 --> 00:03:17.416
+E o mais importante:
+
+48
+00:03:17.416 --> 00:03:20.285
+olhe o painel só quando for seguro.
+
+49
+00:03:20.285 --> 00:03:23.072
+Dirigindo, a atenção é da estrada.
+
+50
+00:03:25.272 --> 00:03:25.865
+Pronto.
+
+51
+00:03:25.865 --> 00:03:30.696
+Agora é só ligar o carro e acompanhar tudo em tempo real.
+
+52
+00:03:31.096 --> 00:03:32.968
+Boa viagem!

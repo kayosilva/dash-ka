@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dash Ka · painel esportivo no celular</title>
+<meta name="description" content="Painel esportivo para o Ford Ka no celular Android: lê a central do motor em tempo real por um adaptador OBD2 ELM327 Bluetooth. Grátis.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/icone-192.png">
+<!-- Prévia do link no WhatsApp/Instagram -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dash Ka · o painel esportivo do seu Ford Ka, no celular">
+<meta property="og:description" content="Rotação, temperaturas, consumo, força G, diagnóstico e desempenho em tempo real, por um adaptador OBD2 Bluetooth. Grátis para Android.">
+<meta property="og:image" content="https://kayosilva.github.io/dash-ka/img/compartilhar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://kayosilva.github.io/dash-ka/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Paleta do app (lib/app/shared/theme/dash_tema.dart) */
+  :root {
+    --fundo: #0B0D10;
+    --centro: #101317;
+    --bloco: #14181D;
+    --borda: #262C33;
+    --texto: #E8ECEF;
+    --texto-claro: #C3CAD1;
+    --rotulo: #8A949E;
+    --suave: #5C6670;
+    --destaque: #FFB020;
+    --eco: #3DDC97;
+    --verde: #7DDB8C;
+    --vermelho: #FF5A5A;
+    --azul: #6CC8FF;
+    --largura: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font: 500 19px/1.5 "Barlow Condensed", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img, video { max-width: 100%; height: auto; display: block; }
+  a { color: var(--azul); }
+  h1, h2, h3 { font-family: "Chakra Petch", system-ui, sans-serif; font-weight: 700; line-height: 1.15; margin: 0; }
+  h2 { font-size: clamp(28px, 5vw, 40px); }
+  h3 { font-size: 22px; }
+  p { margin: 0; color: var(--texto-claro); }
+  .faixa { padding: 64px 16px; }
+  .faixa + .faixa { border-top: 1px solid var(--borda); }
+  .conteudo { max-width: var(--largura); margin: 0 auto; }
+  .sobre { color: var(--eco); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 15px; margin-bottom: 10px; }
+  .intro { margin-top: 12px; max-width: 720px; font-size: 20px; }
+
+  /* topo */
+  .topo {
+    padding: 40px 16px 56px;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, #16202A 0%, transparent 70%),
+      var(--fundo);
+  }
+  .topo .conteudo { display: grid; gap: 36px; align-items: center; }
+  .marca { display: flex; align-items: center; gap: 14px; }
+  .marca img { width: 64px; height: 64px; border-radius: 16px; }
+  .marca span { font-family: "Chakra Petch"; font-weight: 700; font-size: 26px; letter-spacing: .12em; }
+  .topo h1 { font-size: clamp(38px, 8vw, 64px); margin-top: 28px; }
+  .topo h1 em { font-style: normal; color: var(--eco); }
+  .topo .intro { font-size: 21px; }
+  .botoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .botao {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; border-radius: 14px;
+    font: 700 20px "Barlow Condensed"; letter-spacing: .06em; text-transform: uppercase;
+    text-decoration: none; border: 2px solid var(--borda); color: var(--texto); background: var(--bloco);
+  }
+  .botao.principal { background: var(--destaque); border-color: var(--destaque); color: #1A1204; }
+  .botao:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+  .detalhe { margin-top: 12px; color: var(--rotulo); font-size: 16px; }
+  .celular {
+    background: #1B2027; border: 3px solid #39424C; border-radius: 28px; padding: 12px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
+  }
+  .celular img { border-radius: 16px; width: 100%; }
+
+  /* vídeos */
+  .video { margin-top: 28px; border-radius: 18px; overflow: hidden; border: 1px solid var(--borda); background: #000; }
+  .video video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+
+  /* telas */
+  .telas { display: grid; gap: 20px; margin-top: 32px; }
+  .tela { background: var(--bloco); border: 1px solid var(--borda); border-radius: 18px; overflow: hidden; }
+  .tela img { width: 100%; border-bottom: 1px solid var(--borda); }
+  .tela div { padding: 16px 18px 20px; }
+  .tela h3 { margin-bottom: 6px; }
+  .tela p { font-size: 18px; }
+
+  /* passos */
+  .passos { display: grid; gap: 14px; margin-top: 28px; counter-reset: passo; }
+  .passo {
+    display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start;
+    background: var(--bloco); border: 1px solid var(--borda); border-radius: 16px; padding: 16px 18px;
+  }
+  .passo::before {
+    counter-increment: passo; content: counter(passo);
+    font: 700 34px "Chakra Petch"; color: var(--destaque); text-align: center; line-height: 1.2;
+  }
+  .passo p { font-size: 18px; margin-top: 2px; }
+
+  /* precisa */
+  .itens { display: grid; gap: 14px; margin-top: 28px; }
+  .item { background: var(--bloco); border: 1px solid var(--borda); border-radius: 16px; padding: 18px; }
+  .item h3 { color: var(--destaque); margin-bottom: 6px; }
+  .selos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .selo { padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 16px; border: 1.5px solid; }
+  .selo.sim { color: var(--verde); border-color: var(--verde); background: #0F1A14; }
+  .selo.nao { color: var(--vermelho); border-color: var(--vermelho); background: #1F1012; }
+
+  /* perguntas */
+  details { background: var(--bloco); border: 1px solid var(--borda); border-radius: 14px; padding: 0 18px; margin-top: 12px; }
+  summary { cursor: pointer; padding: 16px 0; font: 700 20px "Barlow Condensed"; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--destaque); font-size: 26px; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  details p { padding: 0 0 18px; font-size: 18px; }
+
+  .aviso { background: #1A1F26; border: 1px solid #2C3640; border-left: 4px solid var(--destaque); border-radius: 12px; padding: 16px 18px; margin-top: 24px; }
+  .aviso p + p { margin-top: 8px; }
+  footer { display: block; padding: 32px 16px 48px; color: var(--suave); font-size: 16px; border-top: 1px solid var(--borda); }
+  footer p { color: var(--suave); }
+  footer p + p { margin-top: 6px; }
+
+  @media (min-width: 760px) {
+    .faixa { padding: 88px 24px; }
+    .topo { padding: 48px 24px 88px; }
+    .topo .conteudo { grid-template-columns: 1fr 1.25fr; gap: 56px; }
+    .telas { grid-template-columns: 1fr 1fr; }
+    .passos { grid-template-columns: 1fr 1fr; }
+    .itens { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="conteudo">
+    <div>
+      <div class="marca"><img src="img/icone-192.png" alt=""><span>DASH KA</span></div>
+      <h1>O painel esportivo do seu <em>Ford Ka</em>, no celular.</h1>
+      <p class="intro">Rotação, temperaturas, consumo, força G, diagnóstico e desempenho em tempo real, lidos direto da central do motor por um adaptador OBD2 Bluetooth.</p>
+      <div class="botoes">
+        <a class="botao principal" id="baixar" href="https://github.com/kayosilva/dash-ka/releases/latest/download/dash-ka.apk">Baixar para Android</a>
+        <a class="botao" href="#como-comecar">Como começar</a>
+      </div>
+      <p class="detalhe">Grátis · versão <span id="versao">1.0.0</span> · Android 8 ou mais novo · 40 MB</p>
+    </div>
+    <div class="celular"><img src="img/telas/principal.webp" width="1600" height="739" alt="Tela principal do Dash Ka: conta-giros, velocidade, marcha, força G, temperaturas e combustível"></div>
+  </div>
+</header>
+
+<main>
+
+<section class="faixa">
+  <div class="conteudo">
+    <p class="sobre">Apresentação</p>
+    <h2>Seu carro sabe mais do que mostra no painel</h2>
+    <p class="intro">O Dash Ka transforma o celular num painel esportivo: em pouco mais de três minutos, veja tudo o que ele mostra.</p>
+    <div class="video">
+      <video controls preload="none" playsinline poster="videos/apresentacao.jpg">
+        <source src="videos/apresentacao.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos/apresentacao.vtt" srclang="pt" label="Português">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="conteudo">
+    <p class="sobre">O que ele mostra</p>
+    <h2>Cinco telas, deslizando para o lado</h2>
+    <div class="telas">
+      <article class="tela">
+        <img src="img/telas/principal.webp" width="1600" height="739" loading="lazy" alt="Tela principal">
+        <div><h3>Principal</h3><p>Conta-giros com luz de troca, velocidade, marcha calculada, modo ECO ou SPORT, força G, temperaturas, bateria, combustível e autonomia pelo consumo de verdade.</p></div>
+      </article>
+      <article class="tela">
+        <img src="img/telas/motor.webp" width="1600" height="739" loading="lazy" alt="Tela do motor">
+        <div><h3>Motor</h3><p>Sondas lambda ao vivo, correções de mistura, etanol estimado no tanque, o comando de válvulas variável (real × pedido) e as falhas de ignição de cada cilindro.</p></div>
+      </article>
+      <article class="tela">
+        <img src="img/telas/viagem.webp" width="1600" height="739" loading="lazy" alt="Tela de viagem">
+        <div><h3>Viagem</h3><p>Trecho, viagem e desde o abastecimento: onde foi o tempo, consumo quilômetro a quilômetro com o relevo do caminho, e as viagens e tanques anteriores.</p></div>
+      </article>
+      <article class="tela">
+        <img src="img/telas/diagnostico.webp" width="1600" height="739" loading="lazy" alt="Tela de diagnóstico">
+        <div><h3>Diagnóstico</h3><p>Códigos de falha em português, quando apareceram e com quantos km, os autotestes da central e um laudo em PDF para mandar ao mecânico.</p></div>
+      </article>
+      <article class="tela">
+        <img src="img/telas/anomalias.webp" width="1600" height="739" loading="lazy" alt="Anomalias registradas pelo Dash">
+        <div><h3>Anomalias</h3><p>O que o próprio Dash percebeu rodando: luz da bateria, freio de mão puxado andando, superaquecimento. Se voltar depois de limpo, vira recorrente.</p></div>
+      </article>
+      <article class="tela">
+        <img src="img/telas/desempenho.webp" width="1600" height="739" loading="lazy" alt="Tela de desempenho">
+        <div><h3>Desempenho</h3><p>Potência e torque nas rodas estimados ao vivo, arrancada de 0 a 60 e 0 a 100, e as puxadas guardadas para comparar.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="como-comecar">
+  <div class="conteudo">
+    <p class="sobre">Como começar</p>
+    <h2>Do adaptador à primeira conexão</h2>
+    <div class="video">
+      <video controls preload="none" playsinline poster="videos/tutorial.jpg">
+        <source src="videos/tutorial.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos/tutorial.vtt" srclang="pt" label="Português">
+      </video>
+    </div>
+    <div class="passos">
+      <div class="passo"><div><h3>Encaixe o adaptador</h3><p>Com o carro desligado, encaixe o ELM327 na porta OBD2, embaixo do painel, abaixo do volante. Só entra de um jeito: não force.</p></div></div>
+      <div class="passo"><div><h3>Ligue a ignição</h3><p>Ou já dê a partida. A luz do adaptador acende.</p></div></div>
+      <div class="passo"><div><h3>Pareie no Bluetooth</h3><p>Nas configurações do celular, parear novo dispositivo, toque no "OBDII" (ou parecido). Senha 1234 ou 0000. Só na primeira vez.</p></div></div>
+      <div class="passo"><div><h3>Abra o Dash Ka</h3><p>Permita o Bluetooth e a localização. Ele acha o adaptador e conecta sozinho: o OBD fica verde no canto da tela.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="conteudo">
+    <p class="sobre">O que você precisa</p>
+    <h2>Três coisas</h2>
+    <div class="itens">
+      <div class="item"><h3>Celular Android</h3><p>Versão 8 ou mais nova. iPhone não funciona.</p></div>
+      <div class="item">
+        <h3>Adaptador ELM327</h3>
+        <p>OBD2 com Bluetooth comum. Barato, em lojas de autopeças e na internet. O OBDLink também serve.</p>
+        <div class="selos"><span class="selo sim">Bluetooth comum</span><span class="selo nao">Wi-Fi</span><span class="selo nao">Bluetooth 4.0 / BLE</span></div>
+      </div>
+      <div class="item"><h3>Ford Ka 1.0 Ti-VCT</h3><p>Onde o Dash foi feito e testado (três cilindros). Em outros carros, parte das leituras pode não aparecer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="instalar">
+  <div class="conteudo">
+    <p class="sobre">Instalação</p>
+    <h2>Instalando o APK</h2>
+    <p class="intro">O Dash Ka ainda não está na Play Store: a instalação é pelo arquivo baixado aqui.</p>
+    <div class="passos">
+      <div class="passo"><div><h3>Baixe o arquivo</h3><p>Toque em "Baixar para Android" no celular. Se o navegador avisar que o arquivo pode ser perigoso, confirme o download.</p></div></div>
+      <div class="passo"><div><h3>Abra e permita</h3><p>Abra o arquivo baixado. O Android pede para permitir instalar apps desta fonte (o navegador ou o gerenciador de arquivos): permita e volte.</p></div></div>
+      <div class="passo"><div><h3>Instale</h3><p>Se o Play Protect disser que não conhece o app, toque em "Mais detalhes" e "Instalar assim mesmo".</p></div></div>
+      <div class="passo"><div><h3>Aviso de versão antiga</h3><p>Nos Androids mais novos aparece "este app foi criado para uma versão mais antiga do Android". É esperado: toque em OK.</p></div></div>
+    </div>
+    <div class="aviso">
+      <p><strong>Para atualizar,</strong> é só baixar e instalar a versão nova por cima: as viagens e os registros continuam.</p>
+      <p>Desde setembro de 2026 o Android pede uma verificação a mais para apps fora da Play Store. Se a instalação for bloqueada, fale com quem te mandou o link.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faixa">
+  <div class="conteudo">
+    <p class="sobre">Perguntas</p>
+    <h2>Dúvidas comuns</h2>
+    <details><summary>Quanto custa?</summary><p>Nada. O Dash Ka é grátis e não tem anúncios. Só o adaptador ELM327 é comprado à parte.</p></details>
+    <details><summary>Funciona no meu carro?</summary><p>Foi feito e testado no Ford Ka 1.0 Ti-VCT de três cilindros. Leituras como rotação, velocidade e temperaturas são padrão OBD2 e devem aparecer em outros carros; as exclusivas da Ford (freio, freio de mão, hodômetro e comando variável) só no Ka.</p></details>
+    <details><summary>Pode estragar alguma coisa?</summary><p>O Dash só lê a central. A única coisa que ele escreve é apagar os códigos de falha, e só quando você pede, com o motor parado e confirmação. Não muda nenhuma configuração do carro.</p></details>
+    <details><summary>O adaptador gasta a bateria?</summary><p>Muito pouco, mas gasta. No dia a dia ele pode ficar encaixado; se o carro for ficar parado muitos dias, tire.</p></details>
+    <details><summary>O app coleta meus dados?</summary><p>Não. Não há conta, anúncio nem estatística de uso. Tudo fica no celular. A única conexão à internet é para a temperatura da região (Open-Meteo), com a localização aproximada; sem internet ele usa a estimativa da central.</p></details>
+    <details><summary>Não conecta. E agora?</summary><p>Confira a ignição ligada e a luz do adaptador acesa. Se o celular vê o adaptador mas não conecta, desfaça o pareamento no Bluetooth e pareie de novo. O nome do adaptador precisa ter "OBD" (como OBDII ou OBD2).</p></details>
+    <details><summary>Funciona sem internet?</summary><p>Sim. A conexão com o carro é pelo Bluetooth; a internet só traz a temperatura da região.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="conteudo">
+    <p>Dash Ka é um projeto pessoal, não oficial, sem relação com a Ford Motor Company. Ford e Ka são marcas da Ford.</p>
+    <p>Use por sua conta. Dirigindo, a atenção é da estrada: olhe o painel só quando for seguro.</p>
+    <p><a href="https://github.com/kayosilva/dash-ka/releases">Todas as versões e o que mudou</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
