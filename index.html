@@ -131,6 +131,8 @@
   details[open] summary::after { content: "–"; }
   details p { padding: 0 0 18px; font-size: 18px; }
 
+  .etapa { margin-top: 36px; font-size: 24px; color: var(--destaque); }
+  .etapa span { color: var(--rotulo); font: 600 18px "Barlow Condensed"; }
   .aviso { background: #1A1F26; border: 1px solid #2C3640; border-left: 4px solid var(--destaque); border-radius: 12px; padding: 16px 18px; margin-top: 24px; }
   .aviso p + p { margin-top: 8px; }
   footer { display: block; padding: 32px 16px 48px; color: var(--suave); font-size: 16px; border-top: 1px solid var(--borda); }
@@ -161,6 +163,7 @@
         <a class="botao" href="#como-comecar">Como começar</a>
       </div>
       <p class="detalhe">Para o Ford Ka 1.0 Ti-VCT de 3 cilindros (2014 a 2021) · <a href="#compativel">confira o seu</a></p>
+      <p class="detalhe">Fase de testes: instala em até 20 celulares autorizados · <a href="#instalar">como funciona</a></p>
       <p class="detalhe">Grátis · versão <span id="versao">1.1.0</span> · Android 8 ou mais novo · 40 MB</p>
     </div>
     <div class="celular"><img src="img/telas/principal.webp" width="1600" height="739" alt="Tela principal do Dash Ka: conta-giros, velocidade, marcha, força G, temperaturas e combustível"></div>
@@ -258,17 +261,27 @@
 <section class="faixa" id="instalar">
   <div class="conteudo">
     <p class="sobre">Instalação</p>
-    <h2>Instalando o APK</h2>
-    <p class="intro">O Dash Ka ainda não está na Play Store: a instalação é pelo arquivo baixado aqui.</p>
+    <h2>Autorizar o celular e instalar</h2>
+    <p class="intro">O Dash Ka ainda não está na Play Store: o arquivo vem daqui do site. Antes de instalar, o seu celular precisa ser autorizado. É feito uma vez só, por celular.</p>
+
+    <h3 class="etapa">1 · Autorização <span>(uma vez por celular)</span></h3>
     <div class="passos">
-      <div class="passo"><div><h3>Baixe o arquivo</h3><p>Toque em "Baixar para Android" no celular. Se o navegador avisar que o arquivo pode ser perigoso, confirme o download.</p></div></div>
+      <div class="passo"><div><h3>Peça a autorização</h3><p>Chame quem divulgou o app no grupo do WhatsApp e diga o modelo do celular. Nesta fase de testes são 20 vagas.</p></div></div>
+      <div class="passo"><div><h3>Abra o link no celular</h3><p>Você recebe um link (vale 7 dias). Abra no celular onde vai instalar o Dash Ka e siga as instruções da tela: ele gera um código de autorização.</p></div></div>
+      <div class="passo"><div><h3>Devolva o código</h3><p>Copie o código e mande de volta pelo WhatsApp. Quando a autorização for confirmada, você recebe o aviso para instalar.</p></div></div>
+    </div>
+
+    <h3 class="etapa">2 · Instalação</h3>
+    <div class="passos">
+      <div class="passo"><div><h3>Baixe o arquivo</h3><p>No celular autorizado, toque em "Baixar para Android". Se o navegador avisar que o arquivo pode ser perigoso, confirme o download.</p></div></div>
       <div class="passo"><div><h3>Abra e permita</h3><p>Abra o arquivo baixado. O Android pede para permitir instalar apps desta fonte (o navegador ou o gerenciador de arquivos): permita e volte.</p></div></div>
       <div class="passo"><div><h3>Instale</h3><p>Se o Play Protect disser que não conhece o app, toque em "Mais detalhes" e "Instalar assim mesmo".</p></div></div>
       <div class="passo"><div><h3>Aviso de versão antiga</h3><p>Nos Androids mais novos aparece "este app foi criado para uma versão mais antiga do Android". É esperado: toque em OK.</p></div></div>
     </div>
+
     <div class="aviso">
-      <p><strong>Para atualizar,</strong> é só baixar e instalar a versão nova por cima: as viagens e os registros continuam.</p>
-      <p>Desde setembro de 2026 o Android pede uma verificação a mais para apps fora da Play Store. Se a instalação for bloqueada, fale com quem te mandou o link.</p>
+      <p><strong>Por que a autorização?</strong> Desde 30 de setembro de 2026, no Brasil, o Android só instala apps de fora da Play Store que estejam registrados por um desenvolvedor verificado. O Dash Ka está registrado no Android Developer Console do Google, na modalidade gratuita, que libera a instalação em até 20 celulares autorizados. O arquivo continua vindo daqui; na hora de instalar, o próprio Android confere se o app é o registrado e se o celular está autorizado.</p>
+      <p><strong>Para atualizar,</strong> é só baixar e instalar a versão nova por cima: as viagens e os registros continuam. Trocou de celular? O novo precisa de uma autorização própria.</p>
     </div>
   </div>
 </section>
@@ -277,6 +290,8 @@
   <div class="conteudo">
     <p class="sobre">Perguntas</p>
     <h2>Dúvidas comuns</h2>
+    <details><summary>Por que preciso de autorização para instalar?</summary><p>Porque o Android, no Brasil, só instala apps de fora da Play Store registrados por um desenvolvedor verificado. Na modalidade gratuita do registro, cada celular precisa ser autorizado (até 20). O processo leva poucos minutos e é feito uma vez só.</p></details>
+    <details><summary>Por que não está na Play Store?</summary><p>Ainda está em fase de testes com donos do mesmo Ka. A Play Store tem custo de cadastro e um período de testes próprio; ela fica para depois, se o app crescer.</p></details>
     <details><summary>Quanto custa?</summary><p>Nada. O Dash Ka é grátis e não tem anúncios. Só o adaptador ELM327 é comprado à parte.</p></details>
     <details><summary>Funciona no meu carro?</summary><p>Por enquanto, só no Ford Ka da geração lançada em 2014 (até 2021) com o motor 1.0 Ti-VCT de 3 cilindros: foi testado no 2020/21 e em outro Ka com a mesma central. O Ka de antes de 2014 tem outro motor e outra central, e o Ka 1.5 tem outro motor: não são compatíveis. Em outros carros, rotação, velocidade e temperaturas (padrão OBD2) até podem aparecer, mas o freio, o freio de mão, o hodômetro e o comando variável são leituras próprias deste Ka.</p></details>
     <details><summary>Pode estragar alguma coisa?</summary><p>O Dash só lê a central. A única coisa que ele escreve é apagar os códigos de falha, e só quando você pede, com o motor parado e confirmação. Não muda nenhuma configuração do carro.</p></details>
