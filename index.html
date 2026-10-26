@@ -93,6 +93,7 @@
   /* vídeos */
   .video { margin-top: 28px; border-radius: 18px; overflow: hidden; border: 1px solid var(--borda); background: #000; }
   .video video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+  .no-youtube { margin-top: 10px; font-size: 17px; color: var(--rotulo); }
 
   /* telas */
   .telas { display: grid; gap: 20px; margin-top: 32px; }
@@ -195,6 +196,7 @@
         <track kind="subtitles" src="videos/apresentacao.vtt" srclang="pt" label="Português">
       </video>
     </div>
+    <p class="no-youtube"><a href="https://youtu.be/AD0_7Ejnu4c">Ver no YouTube</a></p>
   </div>
 </section>
 
@@ -241,6 +243,7 @@
         <track kind="subtitles" src="videos/tutorial.vtt" srclang="pt" label="Português">
       </video>
     </div>
+    <p class="no-youtube"><a href="https://youtu.be/4JWsv-Rm0ec">Ver no YouTube</a></p>
     <div class="passos">
       <div class="passo"><div><h3>Encaixe o adaptador</h3><p>Com o carro desligado, encaixe o ELM327 na porta OBD2, embaixo do painel, abaixo do volante. Só entra de um jeito: não force.</p></div></div>
       <div class="passo"><div><h3>Ligue a ignição</h3><p>Ou já dê a partida. A luz do adaptador acende.</p></div></div>
@@ -321,7 +324,7 @@
     <p>Dash Ka é um projeto pessoal, não oficial, sem relação com a Ford Motor Company. Ford e Ka são marcas da Ford.</p>
     <p>Use por sua conta. Dirigindo, a atenção é da estrada: olhe o painel só quando for seguro.</p>
     <p>Este site usa o Google Analytics para contar visitas e cliques, só se você aceitar. <button class="link-botao" id="rever-cookies" type="button">Rever escolha</button></p>
-    <p><a href="https://www.instagram.com/dashka.app/">@dashka.app no Instagram</a> · <a href="https://github.com/kayosilva/dash-ka/releases">Todas as versões e o que mudou</a> · <a href="privacidade">Privacidade</a></p>
+    <p><a href="https://www.instagram.com/dashka.app/">@dashka.app no Instagram</a> · <a href="https://www.youtube.com/@DashKaApp">Canal no YouTube</a> · <a href="https://github.com/kayosilva/dash-ka/releases">Todas as versões e o que mudou</a> · <a href="privacidade">Privacidade</a></p>
   </div>
 </footer>
 
@@ -361,6 +364,7 @@
     if (!a) return;
     if (a.href.includes('/releases/latest/download/')) evento('baixar_apk', { local: a.id || 'link' });
     else if (a.href.includes('ig.me/') || a.href.includes('instagram.com/')) evento('pedir_autorizacao', { link: a.textContent.trim().slice(0, 40) });
+    else if (a.href.includes('youtu.be/') || a.href.includes('youtube.com/')) evento('abrir_youtube', { link: a.getAttribute('href') });
   });
   document.querySelectorAll('video').forEach((v) => {
     let contou = false;
