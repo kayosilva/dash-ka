@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacidade · Dash Ka</title>
+<meta name="description" content="Política de privacidade do app Dash Ka e do site dashka.app.br: o que o app usa, o que fica no celular e o que sai dele.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="icon" href="img/favicon.png">
+<link rel="canonical" href="https://dashka.app.br/privacidade">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Mesma paleta da página principal (index.html) */
+  :root {
+    --fundo: #0B0D10;
+    --bloco: #14181D;
+    --borda: #262C33;
+    --texto: #E8ECEF;
+    --texto-claro: #C3CAD1;
+    --rotulo: #8A949E;
+    --suave: #5C6670;
+    --destaque: #FFB020;
+    --eco: #3DDC97;
+    --azul: #6CC8FF;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font: 500 19px/1.55 "Barlow Condensed", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--azul); }
+  h1, h2 { font-family: "Chakra Petch", system-ui, sans-serif; font-weight: 700; line-height: 1.15; margin: 0; }
+  h1 { font-size: clamp(32px, 7vw, 48px); margin-top: 28px; }
+  h2 { font-size: 24px; margin-top: 40px; color: var(--destaque); }
+  p, li { color: var(--texto-claro); }
+  p { margin: 12px 0 0; }
+  ul { margin: 12px 0 0; padding-left: 22px; }
+  li + li { margin-top: 6px; }
+  strong { color: var(--texto); font-weight: 700; }
+  .conteudo { max-width: 760px; margin: 0 auto; padding: 32px 16px 56px; }
+  .marca { display: inline-flex; align-items: center; gap: 12px; color: var(--texto); text-decoration: none; }
+  .marca img { width: 48px; height: 48px; border-radius: 12px; }
+  .marca span { font-family: "Chakra Petch"; font-weight: 700; font-size: 22px; letter-spacing: .12em; }
+  .data { color: var(--rotulo); font-size: 17px; margin-top: 8px; }
+  .resumo { background: var(--bloco); border: 1px solid var(--borda); border-left: 4px solid var(--eco); border-radius: 12px; padding: 4px 18px 16px; margin-top: 28px; }
+  footer { border-top: 1px solid var(--borda); color: var(--suave); font-size: 16px; padding: 28px 16px 44px; }
+  footer p { color: var(--suave); max-width: 760px; margin: 0 auto; }
+  @media (min-width: 760px) { .conteudo { padding: 48px 24px 72px; } }
+</style>
+</head>
+<body>
+
+<main class="conteudo">
+  <a class="marca" href="./"><img src="img/icone-192.png" alt=""><span>DASH KA</span></a>
+  <h1>Política de privacidade</h1>
+  <p class="data">Atualizada em 26 de outubro de 2026 · vale para o app Dash Ka (a partir da versão 1.1.1) e para o site dashka.app.br</p>
+
+  <div class="resumo">
+    <p><strong>Em resumo:</strong> o Dash Ka não tem conta, não tem anúncios e não envia nada para o desenvolvedor. Tudo o que ele lê do carro fica no seu celular. A única coisa que sai do aparelho é a sua região aproximada (cerca de 11 km de precisão), enviada a um serviço de previsão do tempo para mostrar a temperatura lá fora.</p>
+  </div>
+
+  <h2>Quem é responsável</h2>
+  <p>O Dash Ka é um projeto pessoal de Kayo Silva, desenvolvedor independente no Brasil, sem relação com a Ford Motor Company. Dúvidas sobre privacidade: <a href="https://www.instagram.com/dashka.app/">@dashka.app no Instagram</a>.</p>
+
+  <h2>O que o app usa e para quê</h2>
+  <ul>
+    <li><strong>Dados do carro</strong>, lidos da central do motor pelo adaptador OBD2: rotação, velocidade, temperaturas, tensão, consumo, códigos de falha, hodômetro e outras leituras do motor. Servem para mostrar o painel, calcular viagens e consumo e montar o laudo. Ficam só no celular.</li>
+    <li><strong>Bluetooth</strong>: para encontrar o adaptador já pareado e conectar a ele. O app não procura outros aparelhos e não guarda nada sobre eles.</li>
+    <li><strong>Localização aproximada</strong>: arredondada para cerca de 11 km e enviada ao <a href="https://open-meteo.com/en/terms">Open-Meteo</a> no máximo uma vez por hora, só para saber a temperatura da região. Junto vai o endereço IP da sua conexão, como em qualquer acesso à internet. Sem internet ou sem a permissão, o app usa a temperatura estimada pela central.</li>
+    <li><strong>Localização precisa (GPS)</strong>: só a <strong>altitude</strong> é usada, para o relevo das viagens. A sua posição (latitude e longitude) não é gravada nem enviada.</li>
+    <li><strong>Acelerômetro</strong>: para a força G e as medições de desempenho. Fica no celular.</li>
+  </ul>
+  <p>Você pode negar a localização: o app continua funcionando, só sem a temperatura da região e sem o relevo.</p>
+
+  <h2>O que fica guardado no celular</h2>
+  <p>Viagens, tanques, puxadas, anomalias, laudos em PDF, logs das rodagens (arquivos CSV) e os ajustes ficam na memória do app, no seu aparelho. O desenvolvedor não tem acesso a nada disso. Para apagar tudo, desinstale o app ou limpe os dados dele nas configurações do Android.</p>
+
+  <h2>Quando algo sai do celular</h2>
+  <ul>
+    <li><strong>Temperatura da região</strong>, como descrito acima (Open-Meteo).</li>
+    <li><strong>Quando você compartilha</strong>: ao tocar em EXPORTAR (logs) ou compartilhar um laudo, o arquivo vai para o app que você escolher (WhatsApp, e-mail, Drive…), por decisão sua.</li>
+  </ul>
+  <p>O app não tem publicidade, não usa ferramentas de análise ou rastreamento, não vende nem cede dados a ninguém e não cria perfil de uso.</p>
+
+  <h2>O site</h2>
+  <p>O site dashka.app.br é hospedado pelo GitHub Pages, que pode registrar o endereço IP de quem acessa por segurança. As fontes vêm do Google Fonts. O Google Analytics só é carregado se você tocar em “Aceitar” no aviso de cookies, e serve para contar visitas e cliques (nada de anúncios). A escolha fica no seu navegador e pode ser revista no rodapé da página principal.</p>
+
+  <h2>Seus direitos (LGPD)</h2>
+  <p>Como o desenvolvedor não recebe nem guarda dados seus, os dados do app estão sempre sob o seu controle no aparelho: você pode consultá-los nas telas do app, exportá-los e apagá-los a qualquer momento. Para qualquer pedido ou dúvida com base na Lei Geral de Proteção de Dados, fale pelo <a href="https://www.instagram.com/dashka.app/">@dashka.app</a>.</p>
+
+  <h2>Crianças</h2>
+  <p>O app é feito para motoristas e não é destinado a crianças.</p>
+
+  <h2>Mudanças nesta política</h2>
+  <p>Se o app passar a usar dados de outro jeito, esta página será atualizada antes, com a nova data no topo.</p>
+</main>
+
+<footer>
+  <p><a href="./">Voltar para o Dash Ka</a> · Projeto pessoal, não oficial, sem relação com a Ford Motor Company.</p>
+</footer>
+
+</body>
+</html>
