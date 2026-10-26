@@ -139,6 +139,17 @@
   footer p { color: var(--suave); }
   footer p + p { margin-top: 6px; }
 
+  /* aviso de cookies (Google Analytics só com consentimento) */
+  .cookies { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 10; max-width: 720px; margin: 0 auto;
+    background: #1A1F26; border: 1px solid #2C3640; border-radius: 16px; padding: 16px 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5); display: none; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .cookies.mostrar { display: flex; }
+  .cookies p { flex: 1 1 260px; font-size: 17px; margin: 0; }
+  .cookies .acoes { display: flex; gap: 10px; }
+  .cookies button { font: 700 17px "Barlow Condensed"; letter-spacing: .06em; text-transform: uppercase; padding: 10px 18px;
+    border-radius: 12px; border: 2px solid var(--borda); background: var(--bloco); color: var(--texto); cursor: pointer; }
+  .cookies button.aceitar { background: var(--destaque); border-color: var(--destaque); color: #1A1204; }
+  .link-botao { background: none; border: 0; padding: 0; color: var(--azul); font: inherit; text-decoration: underline; cursor: pointer; }
   @media (min-width: 760px) {
     .faixa { padding: 88px 24px; }
     .topo { padding: 48px 24px 88px; }
@@ -309,9 +320,56 @@
   <div class="conteudo">
     <p>Dash Ka é um projeto pessoal, não oficial, sem relação com a Ford Motor Company. Ford e Ka são marcas da Ford.</p>
     <p>Use por sua conta. Dirigindo, a atenção é da estrada: olhe o painel só quando for seguro.</p>
+    <p>Este site usa o Google Analytics para contar visitas e cliques, só se você aceitar. <button class="link-botao" id="rever-cookies" type="button">Rever escolha</button></p>
     <p><a href="https://www.instagram.com/dashka.app/">@dashka.app no Instagram</a> · <a href="https://github.com/kayosilva/dash-ka/releases">Todas as versões e o que mudou</a></p>
   </div>
 </footer>
+
+<div class="cookies" id="cookies" role="dialog" aria-label="Cookies">
+  <p>Usamos cookies do Google Analytics para saber quantas pessoas visitam o site e o que mais interessa. Nada é usado para anúncios.</p>
+  <div class="acoes"><button type="button" id="recusar">Recusar</button><button type="button" class="aceitar" id="aceitar">Aceitar</button></div>
+</div>
+
+<script>
+  // Google Analytics 4 só depois do "Aceitar" (LGPD). Troque o ID abaixo se mudar a propriedade.
+  const GA_ID = 'G-5MG7CSDYKP';
+  const CHAVE = 'dashka-cookies';
+  const aviso = document.getElementById('cookies');
+  function ler() { try { return localStorage.getItem(CHAVE); } catch (e) { return null; } }
+  function gravar(v) { try { localStorage.setItem(CHAVE, v); } catch (e) {} }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  let carregado = false;
+  function carregarGA() {
+    if (carregado || !/^G-[A-Z0-9]+$/.test(GA_ID) || GA_ID === 'G-XXXXXXXXXX') return;
+    carregado = true;
+    const sc = document.createElement('script');
+    sc.async = true;
+    sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(sc);
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+  }
+  function evento(nome, params) { if (carregado) gtag('event', nome, params || {}); }
+  if (ler() === 'sim') carregarGA(); else if (ler() !== 'nao') aviso.classList.add('mostrar');
+  document.getElementById('aceitar').onclick = () => { gravar('sim'); aviso.classList.remove('mostrar'); carregarGA(); };
+  document.getElementById('recusar').onclick = () => { gravar('nao'); aviso.classList.remove('mostrar'); };
+  document.getElementById('rever-cookies').onclick = () => aviso.classList.add('mostrar');
+  // Eventos: o GA não reconhece .apk como download, então marcamos à mão.
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    if (a.href.includes('/releases/latest/download/')) evento('baixar_apk', { local: a.id || 'link' });
+    else if (a.href.includes('ig.me/') || a.href.includes('instagram.com/')) evento('pedir_autorizacao', { link: a.textContent.trim().slice(0, 40) });
+  });
+  document.querySelectorAll('video').forEach((v) => {
+    let contou = false;
+    v.addEventListener('play', () => { if (!contou) { contou = true; evento('ver_video', { video: v.querySelector('source').getAttribute('src') }); } });
+  });
+  document.querySelectorAll('details').forEach((d) => {
+    d.addEventListener('toggle', () => { if (d.open) evento('abrir_duvida', { pergunta: d.querySelector('summary').textContent.trim() }); });
+  });
+</script>
 
 </body>
 </html>
