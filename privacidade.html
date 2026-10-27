@@ -58,10 +58,10 @@
 <main class="conteudo">
   <a class="marca" href="./"><img src="img/icone-192.png" alt=""><span>DASH KA</span></a>
   <h1>Política de privacidade</h1>
-  <p class="data">Atualizada em 26 de outubro de 2026 · vale para o app Dash Ka (a partir da versão 1.1.1) e para o site dashka.app.br</p>
+  <p class="data">Atualizada em 27 de outubro de 2026 · vale para o app Dash Ka (a partir da versão 1.2.0) e para o site dashka.app.br</p>
 
   <div class="resumo">
-    <p><strong>Em resumo:</strong> o Dash Ka não tem conta, não tem anúncios e não envia nada para o desenvolvedor. Tudo o que ele lê do carro fica no seu celular. A única coisa que sai do aparelho é a sua região aproximada (cerca de 11 km de precisão), enviada a um serviço de previsão do tempo para mostrar a temperatura lá fora.</p>
+    <p><strong>Em resumo:</strong> o Dash Ka não tem conta e não tem anúncios. Tudo o que ele lê do carro fica no seu celular. Saem do aparelho só a sua região aproximada (cerca de 11 km de precisão), enviada a um serviço de previsão do tempo para mostrar a temperatura lá fora, e, <strong>só se você permitir</strong>, relatórios anônimos de erros e de como foi a conexão com o carro, para o desenvolvedor descobrir por que o app não conecta em alguns carros.</p>
   </div>
 
   <h2>Quem é responsável</h2>
@@ -83,15 +83,25 @@
   <h2>Quando algo sai do celular</h2>
   <ul>
     <li><strong>Temperatura da região</strong>, como descrito acima (Open-Meteo).</li>
+    <li><strong>Diagnóstico anônimo, se você permitir</strong> (veja abaixo).</li>
     <li><strong>Quando você compartilha</strong>: ao tocar em EXPORTAR (logs) ou compartilhar um laudo, o arquivo vai para o app que você escolher (WhatsApp, e-mail, Drive…), por decisão sua.</li>
   </ul>
-  <p>O app não tem publicidade, não usa ferramentas de análise ou rastreamento, não vende nem cede dados a ninguém e não cria perfil de uso.</p>
+  <p>O app não tem publicidade, não usa ferramentas de rastreamento ou de publicidade, não vende nem cede dados a ninguém e não cria perfil de uso.</p>
+
+  <h2>Diagnóstico anônimo (opcional)</h2>
+  <p>Na primeira abertura o app pergunta se você quer ajudar a melhorar o Dash. Nada vem marcado: sem a sua resposta, ou se você tocar em “NÃO ENVIAR”, nada é enviado. Se você tocar em “ENVIAR”, o app passa a mandar, pelo <strong>Firebase Crashlytics</strong> e pelo <strong>Cloud Firestore</strong> (serviços do Google):</p>
+  <ul>
+    <li><strong>Relatórios de erro</strong>: quando o app trava ou quando a conexão com o carro falha (em que etapa parou, a mensagem de erro, a versão do app e do Android, o modelo do celular e um identificador aleatório da instalação, criado pelo Crashlytics, que não diz quem você é).</li>
+    <li><strong>Um relatório de compatibilidade</strong> por combinação nova de carro e adaptador: versão do app e do Android, modelo do adaptador (texto que ele mesmo informa, como “ELM327 v1.5”), protocolo, a marca pelo início do chassi (só os 3 primeiros caracteres, como “9BF” da Ford do Brasil), o ano-modelo, o tipo de combustível, quais dados a central oferece, se a conexão deu certo e o tempo médio de cada leitura.</li>
+  </ul>
+  <p><strong>Nunca vão</strong>: o chassi completo, o endereço do adaptador Bluetooth, a sua localização, o hodômetro, as viagens, os logs, os laudos nem nada que identifique você.</p>
+  <p>Para desligar, abra <strong>Diagnóstico › Ajustes › DIAGNÓSTICO ANÔNIMO</strong>; os relatórios de erro que ainda não tinham saído são descartados. Os dados de erro ficam guardados pelo Google conforme a política do Firebase (<a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>); o desenvolvedor usa os relatórios só para corrigir erros e melhorar a conexão com outros carros.</p>
 
   <h2>O site</h2>
   <p>O site dashka.app.br é hospedado pelo GitHub Pages, que pode registrar o endereço IP de quem acessa por segurança. As fontes vêm do Google Fonts. O Google Analytics só é carregado se você tocar em “Aceitar” no aviso de cookies, e serve para contar visitas e cliques (nada de anúncios). A escolha fica no seu navegador e pode ser revista no rodapé da página principal.</p>
 
   <h2>Seus direitos (LGPD)</h2>
-  <p>Como o desenvolvedor não recebe nem guarda dados seus, os dados do app estão sempre sob o seu controle no aparelho: você pode consultá-los nas telas do app, exportá-los e apagá-los a qualquer momento. Para qualquer pedido ou dúvida com base na Lei Geral de Proteção de Dados, fale pelo <a href="https://www.instagram.com/dashka.app/">@dashka.app</a>.</p>
+  <p>Os dados do app ficam sob o seu controle no aparelho: você pode consultá-los nas telas do app, exportá-los e apagá-los a qualquer momento. O diagnóstico anônimo depende do seu consentimento, que você pode retirar quando quiser nos Ajustes; como ele não traz nada que identifique você, o desenvolvedor não consegue ligar um relatório a uma pessoa. Para qualquer pedido ou dúvida com base na Lei Geral de Proteção de Dados, fale pelo <a href="https://www.instagram.com/dashka.app/">@dashka.app</a>.</p>
 
   <h2>Crianças</h2>
   <p>O app é feito para motoristas e não é destinado a crianças.</p>
