@@ -1,19 +1,16 @@
-# Dash Ka · site
+# Dash Ka
 
-Página de apresentação e download do Dash Ka (painel esportivo para o Ford Ka
-no Android, via adaptador OBD2 ELM327 Bluetooth). Publicada pelo GitHub Pages
-em https://dashka.app.br/ (o endereço antigo kayosilva.github.io/dash-ka redireciona).
+Painel esportivo no celular para o Ford Ka 1.0 Ti-VCT de 3 cilindros, lendo a
+central do motor em tempo real por um adaptador OBD2 ELM327 Bluetooth: rotação
+com luz de troca, marcha, consumo e autonomia, temperaturas, diagnóstico com
+laudo em PDF, viagem e desempenho. Outros carros estão em teste.
 
-O código do app fica num repositório privado; aqui ficam só a página, as
-imagens e os vídeos. O APK vai nas **Releases** deste repositório, com o nome
-`dash-ka.apk` (o botão da página aponta para `releases/latest/download/dash-ka.apk`).
+Site, download e vídeos: https://dashka.app.br/ · Instagram
+[@dashka.app](https://www.instagram.com/dashka.app/) · YouTube
+[@DashKaApp](https://www.youtube.com/@DashKaApp)
 
-## Nova versão
+Este repositório guarda só o site. Grátis, sem conta e sem anúncios;
+privacidade em https://dashka.app.br/privacidade.
 
-1. No repositório do app: subir `version:` no `pubspec.yaml` e compilar
-   `flutter build apk --release --target-platform android-arm,android-arm64 --android-project-arg publico=true`
-   (assinado com a chave própria: instala por cima da anterior).
-2. Criar uma Release aqui (tag `v1.0.1`, por exemplo) com o APK renomeado para `dash-ka.apk`.
-3. Atualizar a versão e o tamanho em `index.html` (`id="versao"`).
-
-Projeto pessoal, não oficial, sem relação com a Ford Motor Company.
+Projeto pessoal, não oficial, sem relação com a Ford Motor Company. Ford e Ka
+são marcas da Ford.
