@@ -84,6 +84,26 @@
   .botao.principal { background: var(--destaque); border-color: var(--destaque); color: #1A1204; }
   .botao:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
   .detalhe { margin-top: 12px; color: var(--rotulo); font-size: 16px; }
+
+  /* entrar no teste (e-mail) / Play Store */
+  .teste { margin-top: 28px; max-width: 560px; }
+  .teste label { display: block; font-weight: 700; font-size: 18px; color: var(--texto); margin-bottom: 8px; }
+  .teste .linha { display: flex; flex-wrap: wrap; gap: 10px; }
+  .teste input[type=email] {
+    flex: 1 1 240px; min-width: 0; padding: 13px 16px; border-radius: 14px;
+    border: 2px solid var(--borda); background: var(--bloco); color: var(--texto);
+    font: 600 20px "Barlow Condensed", system-ui, sans-serif;
+  }
+  .teste input[type=email]:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+  .teste button.botao { cursor: pointer; justify-content: center; }
+  .teste button.botao:disabled { opacity: .6; cursor: wait; }
+  .teste .explica { margin-top: 10px; font-size: 17px; color: var(--texto-claro); }
+  .teste .msg { margin-top: 10px; font-size: 18px; font-weight: 700; min-height: 1.5em; }
+  .teste .msg.ok { color: var(--eco); }
+  .teste .msg.erro { color: var(--vermelho); }
+  .isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .na-loja .so-teste { display: none !important; }
+  body:not(.na-loja) .so-loja { display: none !important; }
   .celular {
     background: #1B2027; border: 3px solid #39424C; border-radius: 28px; padding: 12px;
     box-shadow: 0 30px 80px rgba(0,0,0,.55);
@@ -170,13 +190,22 @@
       <div class="marca"><img src="img/icone-192.png" alt=""><span>DASH KA</span></div>
       <h1>O painel esportivo do seu <em>Ford Ka</em>, no celular.</h1>
       <p class="intro">Rotação, temperaturas, consumo, força G, diagnóstico e desempenho em tempo real, lidos direto da central do motor por um adaptador OBD2 Bluetooth.</p>
+      <form class="teste so-teste" id="teste" novalidate>
+        <label for="email">Entre no teste pela Play Store</label>
+        <div class="linha">
+          <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="seu e-mail do Google (Gmail)">
+          <button class="botao principal" type="submit" id="entrar">Entrar no teste</button>
+        </div>
+        <input type="text" name="site" class="isca" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="explica">O Dash Ka está em fase de testes antes de chegar à Play Store. Use o e-mail da conta Google do seu celular Android: ele entra na lista de testadores e você recebe o convite para instalar pela loja. Quando o app for publicado, este botão leva direto para a Play Store. <a href="privacidade#teste">Como usamos o e-mail</a></p>
+        <p class="msg" id="teste-msg" role="status" aria-live="polite"></p>
+      </form>
       <div class="botoes">
-        <a class="botao principal" id="baixar" href="https://github.com/kayosilva/dash-ka/releases/latest/download/dash-ka.apk">Baixar para Android</a>
+        <a class="botao principal so-loja" id="loja" href="https://play.google.com/store/apps/details?id=br.com.kayosilva.dashka">Baixar na Google Play</a>
         <a class="botao" href="#como-comecar">Como começar</a>
-        <a class="botao" href="https://ig.me/m/dashka.app">Pedir autorização</a>
       </div>
       <p class="detalhe">Para o Ford Ka 1.0 Ti-VCT de 3 cilindros (2014 a 2021) · <a href="#compativel">confira o seu</a></p>
-      <p class="detalhe">Fase de testes: instala em até 20 celulares autorizados · <a href="#instalar">como funciona</a></p>
+      <p class="detalhe so-teste">Quer instalar já? Até 20 celulares autorizados instalam o arquivo direto daqui · <a href="#instalar">como funciona</a></p>
       <p class="detalhe">Grátis · versão <span id="versao">1.3.1</span> · Android 8 ou mais novo · 42 MB</p>
     </div>
     <div class="celular"><img src="img/telas/principal.webp" width="1600" height="739" alt="Tela principal do Dash Ka: conta-giros, velocidade, marcha, força G, temperaturas e combustível"></div>
@@ -273,11 +302,11 @@
   </div>
 </section>
 
-<section class="faixa" id="instalar">
+<section class="faixa so-teste" id="instalar">
   <div class="conteudo">
     <p class="sobre">Instalação</p>
     <h2>Autorizar o celular e instalar</h2>
-    <p class="intro">O Dash Ka ainda não está na Play Store: o arquivo vem daqui do site. Antes de instalar, o seu celular precisa ser autorizado. É feito uma vez só, por celular.</p>
+    <p class="intro">Enquanto o teste da Play Store não começa, dá para instalar o arquivo daqui do site em até 20 celulares autorizados. Antes de instalar, o seu celular precisa ser autorizado. É feito uma vez só, por celular.</p>
 
     <h3 class="etapa">1 · Autorização <span>(uma vez por celular)</span></h3>
     <div class="passos">
@@ -288,7 +317,7 @@
 
     <h3 class="etapa">2 · Instalação</h3>
     <div class="passos">
-      <div class="passo"><div><h3>Baixe o arquivo</h3><p>No celular autorizado, toque em "Baixar para Android". Se o navegador avisar que o arquivo pode ser perigoso, confirme o download.</p></div></div>
+      <div class="passo"><div><h3>Baixe o arquivo</h3><p>No celular autorizado, toque em <a id="baixar" href="https://github.com/kayosilva/dash-ka/releases/latest/download/dash-ka.apk">baixar o Dash Ka (APK)</a>. Se o navegador avisar que o arquivo pode ser perigoso, confirme o download.</p></div></div>
       <div class="passo"><div><h3>Abra e permita</h3><p>Abra o arquivo baixado. O Android pede para permitir instalar apps desta fonte (o navegador ou o gerenciador de arquivos): permita e volte.</p></div></div>
       <div class="passo"><div><h3>Instale</h3><p>Se o Play Protect disser que não conhece o app, toque em "Mais detalhes" e "Instalar assim mesmo".</p></div></div>
       <div class="passo"><div><h3>Aviso de versão antiga</h3><p>Nos Androids mais novos aparece "este app foi criado para uma versão mais antiga do Android". É esperado: toque em OK.</p></div></div>
@@ -306,12 +335,12 @@
     <p class="sobre">Perguntas</p>
     <h2>Dúvidas comuns</h2>
     <details><summary>Por que preciso de autorização para instalar?</summary><p>Porque o Android, no Brasil, só instala apps de fora da Play Store registrados por um desenvolvedor verificado. Na modalidade gratuita do registro, cada celular precisa ser autorizado (até 20). O processo leva poucos minutos e é feito uma vez só. Quando o Dash Ka chegar à Play Store, não vai precisar mais.</p></details>
-    <details><summary>Por que não está na Play Store?</summary><p>Está a caminho. A conta de desenvolvedor na Play Store já foi criada, e o Google exige um período de teste fechado antes de liberar o app para todo mundo. Até lá, a instalação é por aqui, com a autorização do celular.</p></details>
+    <details class="so-teste"><summary>Por que não está na Play Store?</summary><p>Está a caminho. O Google exige um período de teste fechado antes de liberar o app para todo mundo. Deixe o e-mail da sua conta Google em "Entrar no teste" no topo da página: você entra na lista de testadores e recebe o convite para instalar pela loja. Quem quiser antes pode instalar o arquivo daqui, com a autorização do celular.</p></details>
     <details><summary>Quanto custa?</summary><p>Nada. O Dash Ka é grátis e não tem anúncios. Só o adaptador ELM327 é comprado à parte.</p></details>
     <details><summary>Funciona no meu carro?</summary><p>Por enquanto, só no Ford Ka da geração lançada em 2014 (até 2021) com o motor 1.0 Ti-VCT de 3 cilindros: foi testado no 2020/21 e em outro Ka com a mesma central. O Ka de antes de 2014 tem outro motor e outra central, e o Ka 1.5 tem outro motor: não são compatíveis. Em outros carros, rotação, velocidade e temperaturas (padrão OBD2) até podem aparecer, mas o freio, o freio de mão, o hodômetro e o comando variável são leituras próprias deste Ka. Uma versão para outros carros está em teste.</p></details>
     <details><summary>Pode estragar alguma coisa?</summary><p>O Dash só lê a central. A única coisa que ele escreve é apagar os códigos de falha, e só quando você pede, com o motor parado e confirmação. Não muda nenhuma configuração do carro.</p></details>
     <details><summary>O adaptador gasta a bateria?</summary><p>Muito pouco, mas gasta. No dia a dia ele pode ficar encaixado; se o carro for ficar parado muitos dias, tire.</p></details>
-    <details><summary>O app coleta meus dados?</summary><p>Não há conta, anúncio nem estatística de uso, e o que o app lê do carro fica no celular. A internet traz a temperatura da região (Open-Meteo), com a localização aproximada. A partir da versão 1.2.0, o app também pergunta se você quer enviar relatórios anônimos de erros e de como foi a conexão com o carro; nada vem marcado, e dá para mudar nos Ajustes. Detalhes na <a href="privacidade">política de privacidade</a>.</p></details>
+    <details><summary>O app coleta meus dados?</summary><p>Não há conta no app, anúncio nem estatística de uso, e o que o app lê do carro fica no celular. A internet traz a temperatura da região (Open-Meteo), com a localização aproximada. A partir da versão 1.2.0, o app também pergunta se você quer enviar relatórios anônimos de erros e de como foi a conexão com o carro; nada vem marcado, e dá para mudar nos Ajustes. O e-mail do teste só serve para o convite da Play Store. Detalhes na <a href="privacidade">política de privacidade</a>.</p></details>
     <details><summary>Não conecta. E agora?</summary><p>Confira a ignição ligada e a luz do adaptador acesa. Se o celular vê o adaptador mas não conecta, desfaça o pareamento no Bluetooth e pareie de novo. O nome do adaptador precisa ter "OBD" (como OBDII ou OBD2).</p></details>
     <details><summary>Funciona sem internet?</summary><p>Sim. A conexão com o carro é pelo Bluetooth. A internet só traz a temperatura da região e, se você tiver permitido, envia os relatórios anônimos, que esperam no celular até a conexão voltar.</p></details>
   </div>
@@ -334,6 +363,11 @@
 </div>
 
 <script>
+  // Quando o Dash Ka for publicado na Play Store, troque para true: o topo
+  // mostra "Baixar na Google Play" e some tudo o que é da fase de testes.
+  const NA_LOJA = false;
+  if (NA_LOJA) document.body.classList.add('na-loja');
+
   // Google Analytics 4 só depois do "Aceitar" (LGPD). Troque o ID abaixo se mudar a propriedade.
   const GA_ID = 'G-5MG7CSDYKP';
   const CHAVE = 'dashka-cookies';
@@ -365,6 +399,39 @@
     if (a.href.includes('/releases/latest/download/')) evento('baixar_apk', { local: a.id || 'link' });
     else if (a.href.includes('ig.me/') || a.href.includes('instagram.com/')) evento('pedir_autorizacao', { link: a.textContent.trim().slice(0, 40) });
     else if (a.href.includes('youtu.be/') || a.href.includes('youtube.com/')) evento('abrir_youtube', { link: a.getAttribute('href') });
+  });
+  // Entrar no teste: o e-mail vai para o Firestore do projeto dash-ka
+  // (coleção `testadores`, só criação; regras em firebase/firestore.rules
+  // no repositório do app). Leitura só pelo console do Firebase.
+  const form = document.getElementById('teste');
+  const msg = document.getElementById('teste-msg');
+  const FIRESTORE = 'https://firestore.googleapis.com/v1/projects/dash-ka/databases/(default)/documents/testadores?key=AIzaSyAqL-VhUOFCPZEwC8uPBw08qSc3mKwDBMQ';
+  function mostrarMsg(texto, ok) { msg.textContent = texto; msg.className = 'msg ' + (ok ? 'ok' : 'erro'); }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.site.value) return; // robô preencheu o campo escondido
+    const email = form.email.value.trim().toLowerCase();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 254) {
+      mostrarMsg('Confira o e-mail: precisa ser o da sua conta Google.', false);
+      form.email.focus();
+      return;
+    }
+    const campos = { email: { stringValue: email } };
+    const origem = new URLSearchParams(location.search).get('utm_source');
+    if (origem) campos.origem = { stringValue: origem.slice(0, 40) };
+    const botao = document.getElementById('entrar');
+    botao.disabled = true;
+    try {
+      const r = await fetch(FIRESTORE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: campos }) });
+      if (!r.ok) throw new Error(r.status);
+      form.email.value = '';
+      mostrarMsg('Pronto! Você está na lista. O convite chega neste e-mail quando o teste da Play Store abrir.', true);
+      evento('entrar_teste', { origem: origem || '' });
+    } catch (err) {
+      mostrarMsg('Não deu para enviar agora. Tente de novo em instantes ou fale com @dashka.app no Instagram.', false);
+    } finally {
+      botao.disabled = false;
+    }
   });
   document.querySelectorAll('video').forEach((v) => {
     let contou = false;
